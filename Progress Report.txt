@@ -1,0 +1,7 @@
+RMS
+Bank (Create, Edit, Index, Delete)
+Department(Create, Edit, Index, Delete)
+FoodType(Index, Create, Edit, Delete)
+Employee(Index, Create, Edit Delete)
+Food(Index, Create, Edit, Delete)
+

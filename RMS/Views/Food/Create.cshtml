@@ -1,0 +1,55 @@
+﻿@model RMS.Data.Objects.Entities.Restaurant.Food
+
+@{
+    ViewBag.Title = "Create";
+    Layout = null;
+}
+
+<!--MODAL HEADER-->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">Add Food</h3>
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<!--MODAL BODY-->
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Title)
+                </div>
+
+
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Price, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Price)
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.FoodTypeId, "Food Type", new { @class = "control-label" })
+                    @Html.DropDownList("FoodTypeId", null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FoodTypeId)
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--MODAL FOOTER-->
+    <div class="modal-footer">
+        <input type="submit" value="Add" class="btn btn-primary pull-left" />
+    </div>
+}

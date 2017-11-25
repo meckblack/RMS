@@ -1,0 +1,107 @@
+﻿@model RMS.Data.Objects.Entities.Employee.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">Editing @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.EmployeeId)
+
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.MiddleName, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Address, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.Gender, new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(RMS.Data.Objects.Enums.Gender))), " ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.DateOfBirth, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.PhoneNumber, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.DateOfEmployment, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.DateOfEmployment, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DateOfEmployment, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.AccountName, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.AccountName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AccountName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.AccountNumber, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.AccountNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AccountNumber, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.BankId, "BankId", new { @class = "control-label" })
+                    @Html.DropDownList("BankId", null, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(model => model.BankId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    @Html.LabelFor(model => model.DepartmentId, "DepartmentId", new { @class = "control-label" })
+                    @Html.DropDownList("DepartmentId", null, new { @class = "control-label" })
+                    @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <input type="submit" value="Save" class="btn btn-primary pull-left" />
+    </div>
+}
+
+

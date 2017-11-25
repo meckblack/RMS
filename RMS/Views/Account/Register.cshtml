@@ -1,0 +1,53 @@
+﻿@model RMS.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    <div class="container-fluid">
+        <div class="content">
+            <div class="row">
+                <div style="padding-top: 200px; padding-left: 30px;" class=" col-md-offset-4 col-xs col-md-4">
+                    <div class="card-header" data-background-color="purple">
+                        <h3 style="padding-left: 70px;">Sign Up</h3>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @Placeholder = "Username" })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @Placeholder = "Password" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @Placeholder = "Confirm Password" })
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Sign Up" class="btn btn-danger" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

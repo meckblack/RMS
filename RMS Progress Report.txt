@@ -1,0 +1,7 @@
+FMS REVIEW
+Change FMS login look(Done)
+From login you should pick your restaurant.
+Change the Search Sort and Pagination on all the pages. (Done)
+How to add jquery validations
+All the create methods do not work 
+

@@ -1,0 +1,32 @@
+﻿@model RMS.Data.Objects.Entities.SystemMangement.Department
+
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">EDITING @Html.DisplayFor(model => model.Name)</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.DepartmentId)
+
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <strong> @Html.LabelFor(model => model.Name, new { @class = "control-label " }) </strong>
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal-footer">
+            <input type="submit" value="SAVE" class="btn btn-primary pull-left" />
+        </div>
+        }

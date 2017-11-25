@@ -1,0 +1,30 @@
+﻿@model RMS.Data.Objects.Entities.Employee.Employee
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = null;
+}
+
+<!--MODAL HEADER-->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">DELETING EMPLOYEE</h3>
+</div>
+
+ <!--MODAL BODY-->
+<div class="modal-body">
+    <h3>
+        Are you sure you want to delete @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)  ?
+    </h3>
+</div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+ <!--MODAL FOOTER-->
+    <div class="modal-footer">
+        <div class="form-actions no-color">
+            <input type="submit" value="Yes" class="btn btn-danger" />
+            <a class="btn btn-info" data-dismiss="modal">No</a>
+        </div>
+    </div>
+    }

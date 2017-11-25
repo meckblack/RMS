@@ -1,0 +1,94 @@
+﻿@model IEnumerable<RMS.Data.Objects.Entities.SystemMangement.FoodType>
+
+@{
+    ViewBag.Title = "Index";
+    var x = 1;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    pad {
+        padding-right: 10px;
+    }
+</style>
+
+
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <a href="@Url.Action("Create", "FoodType")" class="btn btn-primary btn-sm pull-right pad" data-modal=""><i style="color: red;" class="fa fa-2x fa-plus"></i> Add</a>
+            <div style="padding: 20px;">
+                <h4> FOOD TYPE </h4>
+                <table class="table table-hover" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(x++)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "FoodType", new { id = item.FoodTypeId })" data-modal=""><i style="padding-right: 5px; color: red;" class="fa fa-2x fa-edit"></i></a>
+                                    <a href="@Url.Action("Delete", "FoodType", new { id = item.FoodTypeId })" data-modal=""><i class="fa fa-2x fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- /content-panel -->
+    </div><!-- /col-lg-4 -->
+</div><!-- /row -->
+<!-- modal placeholder-->
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+<script src="~/scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="~/Theme/assets/js/RMS.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            columnDefs: [
+                {
+                    targets: [0, 1, 2],
+                    className: 'dataTable'
+                }
+            ]
+        });
+    });
+</script>
+
+

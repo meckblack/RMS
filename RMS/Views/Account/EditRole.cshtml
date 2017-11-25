@@ -1,0 +1,69 @@
+﻿@model RMS.Data.Objects.Entities.SystemMangement.Role
+
+@{
+    ViewBag.Title = "EditRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.RoleId)
+
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="content-panel">
+                <div style="padding: 20px;">
+                    <h2> Editing @Html.DisplayFor(model => model.Title) </h2>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <strong> @Html.LabelFor(model => model.Title, new { @class = "control-label " }) </strong>
+                            @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <strong> Manage Employee </strong>
+                            @Html.EditorFor(model => model.CanManageEmployee, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CanManageEmployee, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <strong> Manage Food </strong>
+                            @Html.EditorFor(model => model.CanManageFood, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CanManageFood, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <strong> Manage Income </strong>
+                            @Html.EditorFor(model => model.CanManageIncome, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CanManageIncome, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="submit" value="Save" class="btn btn-primary pull-left" />
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-danger" href="@Url.Action("RoleIndex", "Account")">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /content-panel -->
+        </div><!-- /col-lg-4 -->
+    </div><!-- /row -->
+}
+
+<style>
+    .pad{
+        padding-left: 30px;
+    }
+</style>

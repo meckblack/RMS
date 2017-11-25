@@ -1,0 +1,137 @@
+﻿@model IEnumerable<RMS.Data.Objects.Entities.Employee.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    var x = 1;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    pad {
+        padding-right: 10px;
+    }
+</style>
+
+
+
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <a href="@Url.Action("Create", "Employee")" class="btn btn-primary btn-sm pull-right pad" data-modal=""><i style="color: red;" class="fa fa-2x fa-plus"></i> Add</a>
+            <div style="padding: 20px;">
+                <h4> EMPLOYEE </h4>
+                <table class="table table-hover" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Last Name
+                            </th>
+                            <th>
+                                Email 
+                            </th>
+                            <th>
+                                Address
+                            </th>
+                            <th>
+                                Phone Number
+                            </th>
+                            <th>
+                                Gender
+                            </th>
+                            <th>
+                                DOB
+                            </th>
+                            <th>
+                                DOE
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(x++)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateOfEmployment)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Employee", new { id = item.EmployeeId })" data-modal=""><i style="color: brown;" class="fa fa-2x fa-edit"></i></a>
+                                    <a href="@Url.Action("Delete", "Employee", new { id = item.EmployeeId })" data-modal=""><i style="color: red;" class="fa fa-2x fa-trash"></i></a>
+                                    <a href="@Url.Action("Detials", "Employee", new { id = item.EmployeeId })" data-modal=""><i style="color: red;" class="fa fa-2x fa-plus"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- /content-panel -->
+    </div><!-- /col-lg-4 -->
+</div><!-- /row -->
+<!-- modal placeholder-->
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+<script src="~/scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="~/Theme/assets/js/RMS.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            columnDefs: [
+                {
+                    targets: [0, 1, 2],
+                    className: 'dataTable'
+                }
+            ]
+        });
+    });
+</script>

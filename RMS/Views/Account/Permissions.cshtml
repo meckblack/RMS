@@ -1,0 +1,43 @@
+﻿@model RMS.Data.Objects.Entities.SystemMangement.Role
+
+@{
+    ViewBag.Title = "Permissions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <div style="padding: 20px;">
+                <h4> <strong> Permissions For @Html.DisplayFor(model => model.Title) Role </strong></h4>
+                <br />
+                <dl class="dl-horizontal">
+                    <dt>
+                        Manage Employee
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CanManageEmployee)
+                    </dd>
+
+                    <dt>
+                        Manage Food
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CanManageFood)
+                    </dd>
+
+                    <dt>
+                        Manage Income
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CanManageIncome)
+                    </dd>
+                </dl>
+                <a class="btn btn-danger" href="@Url.Action("RoleIndex", "Account")">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>

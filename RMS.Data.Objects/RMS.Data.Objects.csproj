@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{93C189B0-C5CD-49A1-B43E-B1CE17009ECD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RMS.Data.Objects</RootNamespace>
+    <AssemblyName>RMS.Data.Objects</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities.ApplicationManagement\Checker.cs" />
+    <Compile Include="Entities.Employee\Employee.cs" />
+    <Compile Include="Entities.Restaurant\CookingMeasurement.cs" />
+    <Compile Include="Entities.Restaurant\Customer.cs" />
+    <Compile Include="Entities.Restaurant\ExpenseCategory.cs" />
+    <Compile Include="Entities.Restaurant\ExpenseItem.cs" />
+    <Compile Include="Entities.Restaurant\Food.cs" />
+    <Compile Include="Entities.Restaurant\IncomeCategory.cs" />
+    <Compile Include="Entities.Restaurant\IncomeItem.cs" />
+    <Compile Include="Entities.Restaurant\Restaurant.cs" />
+    <Compile Include="Entities.Restaurant\SaleCategory.cs" />
+    <Compile Include="Entities.Restaurant\SaleItem.cs" />
+    <Compile Include="Entities.Restaurant\Supplier.cs" />
+    <Compile Include="Entities.SystemMangement\Bank.cs" />
+    <Compile Include="Entities.SystemMangement\Department.cs" />
+    <Compile Include="Entities.Restaurant\FoodStuff.cs" />
+    <Compile Include="Entities.SystemMangement\FoodType.cs" />
+    <Compile Include="Entities.SystemMangement\Measurement.cs" />
+    <Compile Include="Entities.SystemMangement\Role.cs" />
+    <Compile Include="Entities.Vendor\VendorRequest.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\State.cs" />
+    <Compile Include="Enums\Status.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

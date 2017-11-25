@@ -1,0 +1,66 @@
+﻿@model RMS.Data.Objects.Entities.Vendor.VendorRequest
+
+@{
+    ViewBag.Title = "RequestVendor";
+    Layout = "~/Views/Shared/_LandingLayout.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="container" style="padding-top: 100px; padding-bottom: 200px;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong> RESQUEST TO BE A VENDOR </strong>
+            </div>
+            <div class="panel-body">
+                <div class="container">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "NAME" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "EMAIL ADDRESS" })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", @placeholder = "PHONE NUMBER" })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(model => model.LGA, new { @class = "form-control", @placeholder = "LGA" })
+                                @Html.ValidationMessageFor(model => model.LGA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.State, new SelectList(Enum.GetValues(typeof(RMS.Data.Objects.Enums.State))), "Pick a State", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", @placeholder = "ZIP CODE" })
+                                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "ADDRESS" })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div style="padding-top: 10px;">
+                            <input type="submit" value="SEND" class="btn btn-primary pull-left" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

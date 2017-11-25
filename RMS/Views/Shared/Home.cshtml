@@ -1,0 +1,242 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LandingLayout.cshtml";
+    ViewBag.Title = "Home";
+}
+
+<header>
+    <!-- HEADER STARTS HERE-->
+
+
+    <div class='container titles yomer-text-center'>
+        <h1 data-scroll-reveal="wait 0.25s, then enter top and move 40px over 1s">Welcome to Kytech Restaurants</h1>
+        <div class='subhead'>
+            <p>We offer our customers different diates. . Sign up, it's <b>free</b>!</p>
+            <div class='buttons'>
+                <a href="@Url.Action("RequestVendor", "Landing")" class="btn btn-lg btn-danger">@*<i style="color: red;" class="fa fa-2x fa-plus"></i>*@ Become A Vendor</a>
+                
+                <a href="@Url.Action("Register", "CustomerRegister")" class="btn btn-lg btn-primary">@*<i style="color: red;" class="fa fa-2x fa-plus"></i>*@ Sign Up As A Customer</a>
+                
+                <a href="@Url.Action("Create", "IncomeCategory")" class="btn btn-lg" style="background-color:yellowgreen">@*<i style="color: red;" class="fa fa-2x fa-plus"></i>*@ Request For A Job</a>
+            </div>
+        </div>
+    </div>
+    <div class=" logos"><img src="img/logos.png"></div>
+    <a class="godown animate" href="#first">Down</a>
+
+</header><!-- /HEADER ENDS HERE-->
+<!-- ABOUT US STARTS HERE-->
+<section class='aboutus' id='about'>
+    <div class='container'>
+        <div class="row">
+            <div class="col-md-12 yomer-text-center">
+                <h2>What We Offer</h2>
+                <p class="bigtext">
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 yomer-text-center">
+                <a class="icon-widget icon-share" href="#" data-scroll-reveal="wait 0.25s, then enter top and move 70px over 1s">Share</a>
+                <h3>Sharing</h3>
+                <small>Tools</small>
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                </p>
+                <p>
+                    <a class="link-more" href="#">Learn More</a>
+                </p>
+            </div>
+            <div class="col-md-3 yomer-text-center">
+                <a class="icon-widget icon-follow" href="#" data-scroll-reveal="wait 0.25s, then enter top and move 70px over 1s">Follow</a>
+                <h3>Following</h3>
+                <small>Tools</small>
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                </p>
+                <p>
+                    <a class="link-more" href="#">Learn More</a>
+                </p>
+            </div>
+            <div class="col-md-3 yomer-text-center">
+                <a class="icon-widget icon-market" href="#" data-scroll-reveal="wait 0.25s, then enter top and move 70px over 1s">Market</a>
+                <h3>Marketing</h3>
+                <small>Tools</small>
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                </p>
+                <p>
+                    <a class="link-more" href="#">Learn More</a>
+                </p>
+            </div>
+            <div class="col-md-3 yomer-text-center">
+                <a class="icon-widget icon-recommend" href="#" data-scroll-reveal="wait 0.25s, then enter top and move 70px over 1s">Recommend</a>
+                <h3>Recommended</h3>
+                <small>Content Tools</small>
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                </p>
+                <p>
+                    <a class="link-more" href="#">Learn More</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- /ABOUT US ENDS HERE HERE-->
+<!-- OUR MISSION STARTS HERE-->
+<section class="ourmission " id='mission'>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 yomer-text-center">
+                <h3>“In just one weeks, we decreased our bounce rate by 7.75%! Our visitors are seeing more new content when they came to the homepage.”</h3>
+                <small>Thoms christin Atmo, Co-Founder Hijos Del Atomo</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--/ OUR MISSION ENDS HERE-->
+<!--OUR FEATURE STARTS HERE-->
+<section class="feature" id='whyus'>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 yomer-text-center">
+                <h2>Why You’ll Love Us</h2>
+                <p class="bigtext">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece .</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <ul id="feature-tabs" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#works" role="tab" data-toggle="tab">Simple Activation</a></li>
+                    <li role="presentation"><a href="#webtools" role="tab" data-toggle="tab">More Reach</a></li>
+                    <li role="presentation"><a href="#alerts" role="tab" data-toggle="tab">Website Tools</a></li>
+                    <li role="presentation"><a href="#mobile" role="tab" data-toggle="tab">Activity Alerts</a></li>
+                    <li role="presentation"><a href="#analytics" role="tab" data-toggle="tab">Analytics</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="works">
+                        <div class="row">
+                            <div class="col-md-4"><img src="img/01_itjustworks_2x.png"></div>
+                            <div class="col-md-8">
+                                <p>
+
+
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                </p>
+                                <p>
+                                    <a class="link-more" href="features.html">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="webtools">
+                        <div class="row">
+                            <div class="col-md-4"><img src="img/more_reach_2x.png"></div>
+                            <div class="col-md-8">
+                                <p>
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+
+                                </p>
+                                <p>
+                                    <a class="link-more" href="features.html">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="alerts">
+                        <div class="row">
+                            <div class="col-md-4"><img src="img/02_websitetools_2x.png"></div>
+                            <div class="col-md-8">
+                                <p>
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+
+
+                                </p>
+                                <p>
+                                    <a class="link-more" href="features.html">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="mobile">
+                        <div class="row">
+                            <div class="col-md-4"><img src="img/03_activityemail_2x.png"></div>
+                            <div class="col-md-8">
+                                <p>
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                </p>
+                                <p>
+                                    <a class="link-more" href="features.html">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="analytics">
+                        <div class="row">
+                            <div class="col-md-4"><img src="img/04_analytics_2x.png"></div>
+                            <div class="col-md-8">
+                                <p>
+
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2
+
+                                </p>
+                                <p>
+                                    <a class="link-more" href="features.html">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ OUR FEATURE ENDS  HERE-->
+<!--WHY CHOSE STARTS HERE HERE-->
+
+<section class="whychose " id='whychose'>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 yomer-text-center">
+
+
+                <div class="col-md-12 yomer-text-center">
+                    <h3>“Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia”</h3>
+                    <small>Christian Orellana, Co-Founder Hijos Del Atomo</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
