@@ -13,14 +13,25 @@ namespace RMS.Controllers.RestaurantManagement
 {
     public class CookingMeasurementController : Controller
     {
-        private SystemDataContext db = new SystemDataContext();
+        private readonly SystemDataContext db;
 
+        #region constructor
+        public CookingMeasurementController()
+        {
+            db = new SystemDataContext();
+        }
+        #endregion
+
+        #region CookingMeasurement Index
         // GET: /CookingMeasurement/
         public ActionResult Index()
         {
             return View(db.CookingMeasurement.ToList());
         }
 
+        #endregion
+
+        #region CookingMeasurement Details
         // GET: /CookingMeasurement/Details/5
         public ActionResult Details(long? id)
         {
@@ -36,6 +47,9 @@ namespace RMS.Controllers.RestaurantManagement
             return View(cookingmeasurement);
         }
 
+        #endregion
+
+        #region CookingMeasurement Create
         // GET: /CookingMeasurement/Create
         public ActionResult Create()
         {
@@ -60,6 +74,9 @@ namespace RMS.Controllers.RestaurantManagement
             return PartialView("Create", cookingmeasurement);
         }
 
+        #endregion
+
+        #region CookingMeasurement Edit
         // GET: /CookingMeasurement/Edit/5
         public ActionResult Edit(long? id)
         {
@@ -91,6 +108,9 @@ namespace RMS.Controllers.RestaurantManagement
             return PartialView("Edit", cookingmeasurement);
         }
 
+        #endregion
+
+        #region CookingMeasurement Delete
         // GET: /CookingMeasurement/Delete/5
         public ActionResult Delete(long? id)
         {
@@ -117,6 +137,9 @@ namespace RMS.Controllers.RestaurantManagement
             return Json(new { success = true });
         }
 
+        #endregion
+
+        #region Dispoose
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,5 +148,7 @@ namespace RMS.Controllers.RestaurantManagement
             }
             base.Dispose(disposing);
         }
+
+        #endregion
     }
 }

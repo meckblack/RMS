@@ -14,7 +14,14 @@ namespace RMS.Controllers.Vendor_Controller
 {
     public class VendorRequestController : Controller
     {
-        private SystemDataContext db = new SystemDataContext();
+        private readonly SystemDataContext db;
+
+        #region constructor
+        public VendorRequestController()
+        {
+            db = new SystemDataContext();
+        }
+        #endregion
 
         // GET: /VendorRequest/
         public ActionResult Index()
