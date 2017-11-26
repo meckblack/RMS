@@ -13,14 +13,24 @@ namespace RMS.Controllers.SystemManagement
 {
     public class BankController : Controller
     {
-        private SystemDataContext db = new SystemDataContext();
+        private readonly SystemDataContext db;
 
+        #region constructor
+        public BankController()
+        {
+            db = new SystemDataContext();
+        }
+        #endregion
+
+        #region Bank Index
         // GET: /Bank/
         public ActionResult Index()
         {
             return View(db.Bank.ToList());
         }
+        #endregion
 
+        #region Bank Details
         // GET: /Bank/Details/5
         //public ActionResult Details(long? id)
         //{
@@ -35,7 +45,9 @@ namespace RMS.Controllers.SystemManagement
         //    }
         //    return View(bank);
         //}
+        #endregion
 
+        #region Bank Create
         // GET: /Bank/Create
         public ActionResult Create()
         {
@@ -59,7 +71,9 @@ namespace RMS.Controllers.SystemManagement
 
             return View(bank);
         }
+        #endregion
 
+        #region Bank Edit
         // GET: /Bank/Edit/5
         public ActionResult Edit(long? id)
         {
@@ -90,7 +104,9 @@ namespace RMS.Controllers.SystemManagement
             }
             return View(bank);
         }
+        #endregion
 
+        #region Bank Delete
         // GET: /Bank/Delete/5
         public ActionResult Delete(long? id)
         {
@@ -116,7 +132,9 @@ namespace RMS.Controllers.SystemManagement
             db.SaveChanges();
             return Json(new { success = true });
         }
+        #endregion
 
+        #region Dispoose
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,5 +143,6 @@ namespace RMS.Controllers.SystemManagement
             }
             base.Dispose(disposing);
         }
+        #endregion
     }
 }
