@@ -13,14 +13,25 @@ namespace RMS.Controllers.RestaurantManagement
 {
     public class CustomerController : Controller
     {
-        private SystemDataContext db = new SystemDataContext();
+        private readonly SystemDataContext db;
 
+        #region constructor
+        public CustomerController()
+        {
+            db = new SystemDataContext();
+        }
+        #endregion
+
+        #region Customer Index
         // GET: /Customer/
         public ActionResult Index()
         {
             return View(db.Customer.ToList());
         }
 
+        #endregion
+
+        #region Customer Details
         // GET: /Customer/Details/5
         public ActionResult Details(long? id)
         {
@@ -35,7 +46,9 @@ namespace RMS.Controllers.RestaurantManagement
             }
             return PartialView(customer);
         }
+        #endregion
 
+        #region Customer Create
         // GET: /Customer/Create
         public ActionResult Create()
         {
@@ -60,6 +73,9 @@ namespace RMS.Controllers.RestaurantManagement
             return PartialView("Create", customer);
         }
 
+        #endregion
+
+        #region Customer Edit
         // GET: /Customer/Edit/5
         public ActionResult Edit(long? id)
         {
@@ -90,7 +106,9 @@ namespace RMS.Controllers.RestaurantManagement
             }
             return PartialView("Edit", customer);
         }
+        #endregion
 
+        #region Customer Delete
         // GET: /Customer/Delete/5
         public ActionResult Delete(long? id)
         {
@@ -116,7 +134,9 @@ namespace RMS.Controllers.RestaurantManagement
             db.SaveChanges();
             return Json(new { success = true });
         }
+        #endregion
 
+        #region Dispoose
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,5 +145,6 @@ namespace RMS.Controllers.RestaurantManagement
             }
             base.Dispose(disposing);
         }
+        #endregion
     }
 }
