@@ -22,6 +22,7 @@ namespace RMS.Controllers.Vendor_Controller
             return View(db.VendorRequest.ToList());
         }
 
+        #region VendorRequest Details
         // GET: /VendorRequest/Details/5
         public ActionResult Details(long? id)
         {
@@ -36,7 +37,9 @@ namespace RMS.Controllers.Vendor_Controller
             }
             return View(vendorrequest);
         }
+        #endregion
 
+        #region VendorRequest Request
         //GET: /VendorRequest/Request/id
         [HttpGet]
         [Authorize]
@@ -70,6 +73,9 @@ namespace RMS.Controllers.Vendor_Controller
             return PartialView("Edit", request);
         }
 
+        #endregion
+
+        #region VendorRequest Create
         // POST: /VendorRequest/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -102,6 +108,7 @@ namespace RMS.Controllers.Vendor_Controller
 
             return View(vendorrequest);
         }
+        #endregion
 
         // GET: /VendorRequest/Edit/5
         public ActionResult Edit(long? id)
