@@ -65,25 +65,36 @@ namespace RMS.Controllers.Vendor_Controller
         {
             if (ModelState.IsValid)
             {
-
-                var req = new Vendor
+                if (db.Vendor.Any(record => record.Name == vendor.Name))
                 {
-                    VendorId = vendor.VendorId,
-                    Name = vendor.Name,
-                    Email = vendor.Email,
-                    Address = vendor.Address,
-                    LGA = vendor.LGA,
-                    State = vendor.State,
-                    ZipCode = vendor.ZipCode,
-                    PhoneNumber = vendor.PhoneNumber,
-                    DateCreated = DateTime.Now
-                };
-                db.Vendor.Add(req);
-                db.SaveChanges();
-                return Json(new { succuess = true });
+                    ModelState.AddModelError("Name", "Vendor Name is already taken");
+                }
+                if (db.Vendor.Any(record => record.Email == vendor.Email))
+                {
+                    ModelState.AddModelError("Email", "Email Address already in use");
+                }
+                
+                else
+                { 
+                    var req = new Vendor
+                    {
+                        VendorId = vendor.VendorId,
+                        Name = vendor.Name,
+                        Email = vendor.Email,
+                        Address = vendor.Address,
+                        LGA = vendor.LGA,
+                        State = vendor.State,
+                        ZipCode = vendor.ZipCode,
+                        PhoneNumber = vendor.PhoneNumber,
+                        DateCreated = DateTime.Now
+                    };
+                    db.Vendor.Add(req);
+                    db.SaveChanges();
+                    return Json(new { succuess = true });
+                }
             }
 
-            return View(vendor);
+            return PartialView("Create", vendor);
         }
         #endregion
 
@@ -180,26 +191,31 @@ namespace RMS.Controllers.Vendor_Controller
         {
             if (ModelState.IsValid)
             {
-
-                var req = new Vendor
+                if (db.Vendor.Any(record => record.Email == vendor.Email))
                 {
-                    VendorId = vendor.VendorId,
-                    Name = vendor.Name,
-                    Email = vendor.Email,
-                    Address = vendor.Address,
-                    LGA = vendor.LGA,
-                    State = vendor.State,
-                    ZipCode = vendor.ZipCode,
-                    PhoneNumber = vendor.PhoneNumber,
-                    DateCreated = DateTime.Now
-                };
-
-                db.Vendor.Add(req);
-                db.SaveChanges();
-                return RedirectToAction("Home");
+                    ModelState.AddModelError("Email", "Email Address already in use");
+                }
+                else
+                {
+                    var req = new Vendor
+                    {
+                        VendorId = vendor.VendorId,
+                        Name = vendor.Name,
+                        Email = vendor.Email,
+                        Address = vendor.Address,
+                        LGA = vendor.LGA,
+                        State = vendor.State,
+                        ZipCode = vendor.ZipCode,
+                        PhoneNumber = vendor.PhoneNumber,
+                        DateCreated = DateTime.Now
+                    };
+                    db.Vendor.Add(req);
+                    db.SaveChanges();
+                    return RedirectToAction("Home", "Landing");
+                }
             }
 
-            return RedirectToAction("Home");
+            return RedirectToAction("Home", "Landing");
         }
         #endregion
     }
