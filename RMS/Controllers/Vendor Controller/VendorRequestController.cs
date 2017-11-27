@@ -23,11 +23,13 @@ namespace RMS.Controllers.Vendor_Controller
         }
         #endregion
 
+        #region VendorRequest Index
         // GET: /VendorRequest/
         public ActionResult Index()
         {
             return View(db.VendorRequest.ToList());
         }
+        #endregion
 
         #region VendorRequest Details
         // GET: /VendorRequest/Details/5
@@ -117,6 +119,7 @@ namespace RMS.Controllers.Vendor_Controller
         }
         #endregion
 
+        #region VendorRequest Edit
         // GET: /VendorRequest/Edit/5
         public ActionResult Edit(long? id)
         {
@@ -131,6 +134,7 @@ namespace RMS.Controllers.Vendor_Controller
             }
             return View(vendorrequest);
         }
+        
 
         // POST: /VendorRequest/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -147,7 +151,9 @@ namespace RMS.Controllers.Vendor_Controller
             }
             return View(vendorrequest);
         }
+        #endregion
 
+        #region VendorRequest Delete
         // GET: /VendorRequest/Delete/5
         public ActionResult Delete(long? id)
         {
@@ -173,7 +179,9 @@ namespace RMS.Controllers.Vendor_Controller
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        #endregion
 
+        #region Dispose
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -182,5 +190,6 @@ namespace RMS.Controllers.Vendor_Controller
             }
             base.Dispose(disposing);
         }
+        #endregion
     }
 }
