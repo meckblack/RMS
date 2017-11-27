@@ -26,7 +26,7 @@ namespace RMS.Controllers.Vendor_Controller
         // GET: /Vendor/
         public ActionResult Index()
         {
-            return View(db.Vendor.ToList());
+            return View(db.Vendor.Where(record => record.Status == Data.Objects.Enums.Status.Approved).OrderBy(order => order.Name).ToList());
         }
         #endregion
 
@@ -86,7 +86,8 @@ namespace RMS.Controllers.Vendor_Controller
                         State = vendor.State,
                         ZipCode = vendor.ZipCode,
                         PhoneNumber = vendor.PhoneNumber,
-                        DateCreated = DateTime.Now
+                        DateCreated = DateTime.Now,
+                        Status = Data.Objects.Enums.Status.Approved
                     };
                     db.Vendor.Add(req);
                     db.SaveChanges();
@@ -161,6 +162,16 @@ namespace RMS.Controllers.Vendor_Controller
 
         #endregion
 
+        #region Vendor ManageRequest
+
+        //GET: /Vendor/ManageRequest
+        public ActionResult ManageRequest()
+        {
+            return View(db.Vendor.ToList());
+        }
+
+        #endregion
+
         #region Dispose
         protected override void Dispose(bool disposing)
         {
@@ -207,7 +218,8 @@ namespace RMS.Controllers.Vendor_Controller
                         State = vendor.State,
                         ZipCode = vendor.ZipCode,
                         PhoneNumber = vendor.PhoneNumber,
-                        DateCreated = DateTime.Now
+                        DateCreated = DateTime.Now,
+                        Status = Data.Objects.Enums.Status.Pending
                     };
                     db.Vendor.Add(req);
                     db.SaveChanges();

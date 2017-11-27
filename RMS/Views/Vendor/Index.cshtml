@@ -59,9 +59,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (db.Vendor.Any(record => record.Status == RMS.Data.Objects.Enums.Status.Approved))
-                        {
-                            foreach (var item in Model)
+                        @*@if (db.Vendor.Any(record => record.Status == RMS.Data.Objects.Enums.Status.Approved))
+                        {*@
+                            @foreach (var item in Model)
                             {
                                 <tr>
                                     <td>
@@ -88,7 +88,7 @@
                                         <a href="@Url.Action("Delete", "Vendor", new { id = item.VendorId })" data-modal=""><i style="color: red;" class="fa fa-2x fa-trash"></i></a>
                                     </td>
                                 </tr>
-                            }
+                            @*}*@
                         }
                     </tbody>
                 </table>
