@@ -170,7 +170,6 @@
     <Compile Include="Controllers\Landing\LandingController.cs" />
     <Compile Include="Controllers\Landing\CustomerRegisterController.cs" />
     <Compile Include="Controllers\Landing\tESTController.cs" />
-    <Compile Include="Controllers\Vendor Controller\VendorController.cs" />
     <Compile Include="Controllers\RestaurantManagement\ExpenseItemController.cs" />
     <Compile Include="Controllers\RestaurantManagement\CookingMeasurementController.cs" />
     <Compile Include="Controllers\RestaurantManagement\CustomerController.cs" />
@@ -185,6 +184,7 @@
     <Compile Include="Controllers\RestaurantManagement\FoodStuffController.cs" />
     <Compile Include="Controllers\SystemManagement\FoodTypeController.cs" />
     <Compile Include="Controllers\SystemManagement\MeasurementController.cs" />
+    <Compile Include="Controllers\Vendor Controller\VendorController.cs" />
     <Compile Include="Controllers\Vendor Controller\VendorRequestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -495,7 +495,7 @@
     <Content Include="Views\Shared\_LandingLayout.cshtml" />
     <Content Include="Views\Shared\Layout Partial\LandingHeader.cshtml" />
     <Content Include="Views\Shared\Layout Partial\LandingFooter.cshtml" />
-    <Content Include="Views\Shared\RequestVendor.cshtml" />
+    <Content Include="Views\Vendor\Requests.cshtml" />
     <Content Include="Views\Landing\RequestJob.cshtml" />
     <Content Include="Views\Account\CreateRole.cshtml" />
     <Content Include="Views\Account\RoleIndex.cshtml" />
@@ -503,12 +503,16 @@
     <Content Include="Views\Account\Permissions.cshtml" />
     <Content Include="Views\CustomerRegister\Register.cshtml" />
     <Content Include="Views\Landing\Home.cshtml" />
-    <Content Include="Views\VendorRequest\Index.cshtml" />
+    <Content Include="Views\Vendor\Create.cshtml" />
+    <Content Include="Views\Vendor\Delete.cshtml" />
+    <Content Include="Views\Vendor\Details.cshtml" />
+    <Content Include="Views\Vendor\Edit.cshtml" />
+    <Content Include="Views\Vendor\Index.cshtml" />
+    <Content Include="Views\Vendor\ManageRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\tEST\" />
-    <Folder Include="Views\Vendor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -12,7 +12,7 @@ namespace RMS.Data.Objects.Entities.Vendor
     public class Vendor
     {
         [Key]
-        public long VendoerRequestId { get; set; }
+        public long VendorId { get; set; }
 
         [Required(ErrorMessage = "Company name field is required")]
         public string Name { get; set; }

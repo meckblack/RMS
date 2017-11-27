@@ -1,0 +1,82 @@
+﻿@model IEnumerable<RMS.Data.Objects.Entities.Vendor.Vendor>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!--MODAL HEADER-->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">Details Of @Html.DisplayFor(model => model.Name)</h3>
+</div>
+
+<!--MODAL BODY-->
+<div class="modal-body">
+    <div class="container-fluid">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LGA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LGA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<!--MODAL FOOTER-->
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>
+
+
+

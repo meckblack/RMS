@@ -14,181 +14,58 @@ namespace RMS.Controllers.Vendor_Controller
 {
     public class VendorRequestController : Controller
     {
-        private readonly SystemDataContext db;
+        private SystemDataContext db;
 
-        #region constructor
+        #region Constructor
         public VendorRequestController()
         {
             db = new SystemDataContext();
         }
         #endregion
 
-        #region VendorRequest Index
-        // GET: /VendorRequest/
-        public ActionResult Index()
-        {
-            return View(db.VendorRequest.ToList());
-        }
-        #endregion
-
-        #region VendorRequest Details
-        // GET: /VendorRequest/Details/5
-        public ActionResult Details(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vendor vendorrequest = db.VendorRequest.Find(id);
-            if (vendorrequest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vendorrequest);
-        }
-        #endregion
-
-        #region VendorRequest Request
-        //GET: /VendorRequest/Request/id
-        [HttpGet]
-        [Authorize]
-        public async Task<ActionResult> Request(long? id)
-        {
-            var vendorrequest = await db.VendorRequest.FindAsync(id);
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            if (vendorrequest == null)
-            {
-                return HttpNotFound();
-            }
-            return PartialView("Request", vendorrequest);
-        }
-
-        // POST: /VendorRequest/Request/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Vendor request)
-        {
-            if (ModelState.IsValid)
-            {
-
-            }
-            return PartialView("Edit", request);
-        }
-
-        #endregion
-
-        #region VendorRequest Create
-        // POST: /VendorRequest/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Request()
+        public ActionResult Home()
         {
             return View();
         }
 
-        // GET: /VendorRequest/Create
-        public ActionResult Create()
+        #region Vendor Request
+        // GET: /Vendor/
+        // GET: /Landing/RequestVendor
+        public ActionResult RequestVendor()
         {
             return View();
         }
 
-        // POST: /VendorRequest/Create
+
+        // POST: /Landing/RequestVendor
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendorrequest)
+        public ActionResult RequestVendor([Bind(Include = "VendorRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendorRequest)
         {
             if (ModelState.IsValid)
             {
-                db.VendorRequest.Add(vendorrequest);
+
+                var request = new Vendor
+                {
+                    VendorId = vendorRequest.VendorId,
+                    Name = vendorRequest.Name,
+                    Email = vendorRequest.Email,
+                    Address = vendorRequest.Address,
+                    LGA = vendorRequest.LGA,
+                    State = vendorRequest.State,
+                    ZipCode = vendorRequest.ZipCode,
+                    PhoneNumber = vendorRequest.PhoneNumber,
+                    DateCreated = DateTime.Now
+                };
+
+                db.Vendor.Add(request);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Home");
             }
 
-            return View(vendorrequest);
-        }
-        #endregion
-
-        #region VendorRequest Edit
-        //// GET: /VendorRequest/Edit/5
-        //public ActionResult Edit(long? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    VendorRequest vendorrequest = db.VendorRequest.Find(id);
-        //    if (vendorrequest == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(vendorrequest);
-        //}
-
-
-        //// POST: /VendorRequest/Edit/5
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include="VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] VendorRequest vendorrequest)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(vendorrequest).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(vendorrequest);
-        //}
-        #endregion
-
-        #region VendorRequest Delete
-        // GET: /VendorRequest/Delete/5
-        public ActionResult Delete(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vendor vendorrequest = db.VendorRequest.Find(id);
-            if (vendorrequest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vendorrequest);
-        }
-
-        // POST: /VendorRequest/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
-        {
-            Vendor vendorrequest = db.VendorRequest.Find(id);
-            db.VendorRequest.Remove(vendorrequest);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        #endregion
-
-        #region Dispose
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return RedirectToAction("Home");
         }
         #endregion
     }

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<RMS.Data.Objects.Entities.Vendor.Vendor>
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<!--MODAL HEADER-->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title">Editing @Html.DisplayFor(model => model.Name)</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.VendorId)
+
+    <!--MODAL BODY-->
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <strong> @Html.LabelFor(model => model.Name, new { @class = "control-label" }) </strong>
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <strong> @Html.LabelFor(model => model.Email, new { @class = "control-label" }) </strong>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6 form-group">
+                    <strong> @Html.LabelFor(model => model.PhoneNumber, new { @class = "control-label" }) </strong>
+                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <strong> @Html.LabelFor(model => model.State, new { @class = "control-label" }) </strong>
+                    @Html.DropDownListFor(model => model.State, new SelectList(Enum.GetValues(typeof(RMS.Data.Objects.Enums.State))), " ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    <strong> @Html.LabelFor(model => model.LGA, new { @class = "control-label" }) </strong>
+                    @Html.TextBoxFor(model => model.LGA, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LGA, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 form-group">
+                    <strong> @Html.LabelFor(model => model.ZipCode, new { @class = "control-label" }) </strong>
+                    @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <strong> @Html.LabelFor(model => model.Address, new { @class = "control-label" }) </strong>
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!--MODAL FOOTER-->
+            <div class="modal-footer">
+                <input type="submit" value="Save" class="btn btn-primary pull-left" />
+            </div>
+        </div>
+    </div>
+}
+
+

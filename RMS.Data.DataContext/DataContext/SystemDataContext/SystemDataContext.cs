@@ -36,7 +36,7 @@ namespace RMS.Data.DataContext.DataContext.SystemDataContext
         public virtual DbSet<ExpenseItem> ExpenseItem { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Vendor> VendorRequest { get; set; }
+        public virtual DbSet<Vendor> Vendor { get; set; }
         
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
