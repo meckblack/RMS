@@ -114,6 +114,14 @@
     <Compile Include="Migrations\201711241104193_Migrate-15.Designer.cs">
       <DependentUpon>201711241104193_Migrate-15.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711270131524_Migrate-16.cs" />
+    <Compile Include="Migrations\201711270131524_Migrate-16.Designer.cs">
+      <DependentUpon>201711270131524_Migrate-16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711270132535_Migrate-17.cs" />
+    <Compile Include="Migrations\201711270132535_Migrate-17.Designer.cs">
+      <DependentUpon>201711270132535_Migrate-17.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -172,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711241104193_Migrate-15.resx">
       <DependentUpon>201711241104193_Migrate-15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270131524_Migrate-16.resx">
+      <DependentUpon>201711270131524_Migrate-16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270132535_Migrate-17.resx">
+      <DependentUpon>201711270132535_Migrate-17.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

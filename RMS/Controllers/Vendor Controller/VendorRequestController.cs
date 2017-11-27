@@ -39,7 +39,7 @@ namespace RMS.Controllers.Vendor_Controller
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VendorRequest vendorrequest = db.VendorRequest.Find(id);
+            Vendor vendorrequest = db.VendorRequest.Find(id);
             if (vendorrequest == null)
             {
                 return HttpNotFound();
@@ -73,11 +73,11 @@ namespace RMS.Controllers.Vendor_Controller
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(VendorRequest request)
+        public ActionResult Edit(Vendor request)
         {
             if (ModelState.IsValid)
             {
-                
+
             }
             return PartialView("Edit", request);
         }
@@ -106,7 +106,7 @@ namespace RMS.Controllers.Vendor_Controller
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] VendorRequest vendorrequest)
+        public ActionResult Create([Bind(Include = "VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendorrequest)
         {
             if (ModelState.IsValid)
             {
@@ -134,7 +134,7 @@ namespace RMS.Controllers.Vendor_Controller
         //    }
         //    return View(vendorrequest);
         //}
-        
+
 
         //// POST: /VendorRequest/Edit/5
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -161,7 +161,7 @@ namespace RMS.Controllers.Vendor_Controller
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VendorRequest vendorrequest = db.VendorRequest.Find(id);
+            Vendor vendorrequest = db.VendorRequest.Find(id);
             if (vendorrequest == null)
             {
                 return HttpNotFound();
@@ -174,7 +174,7 @@ namespace RMS.Controllers.Vendor_Controller
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            VendorRequest vendorrequest = db.VendorRequest.Find(id);
+            Vendor vendorrequest = db.VendorRequest.Find(id);
             db.VendorRequest.Remove(vendorrequest);
             db.SaveChanges();
             return RedirectToAction("Index");

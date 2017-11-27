@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RMS.Data.Objects.Entities.Vendor
 {
-    public class VendorRequest
+    public class Vendor
     {
         [Key]
         public long VendoerRequestId { get; set; }

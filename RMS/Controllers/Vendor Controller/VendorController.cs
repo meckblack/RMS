@@ -41,12 +41,12 @@ namespace RMS.Controllers.Vendor_Controller
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RequestVendor([Bind(Include = "VendorRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] VendorRequest vendorRequest)
+        public ActionResult RequestVendor([Bind(Include = "VendorRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendorRequest)
         {
             if (ModelState.IsValid)
             {
 
-                var request = new VendorRequest
+                var request = new Vendor
                 {
                     VendoerRequestId = vendorRequest.VendoerRequestId,
                     Name = vendorRequest.Name,

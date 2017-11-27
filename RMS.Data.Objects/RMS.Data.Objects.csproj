@@ -59,7 +59,7 @@
     <Compile Include="Entities.SystemMangement\FoodType.cs" />
     <Compile Include="Entities.SystemMangement\Measurement.cs" />
     <Compile Include="Entities.SystemMangement\Role.cs" />
-    <Compile Include="Entities.Vendor\VendorRequest.cs" />
+    <Compile Include="Entities.Vendor\Vendor.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\State.cs" />
     <Compile Include="Enums\Status.cs" />
