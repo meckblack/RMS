@@ -10,12 +10,12 @@ namespace RMS.Data.Objects.Enums
     public enum Status
     {
         [Display(Name = "Pending")]
-        Pending,
+        Pending = 0,
 
         [Display(Name = "Approved")]
-        Approved,
+        Approved = 1,
 
         [Display(Name = "Declined")]
-        Declined,
+        Declined = 2,
     }
 }
