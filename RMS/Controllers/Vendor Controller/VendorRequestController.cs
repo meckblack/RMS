@@ -120,37 +120,37 @@ namespace RMS.Controllers.Vendor_Controller
         #endregion
 
         #region VendorRequest Edit
-        // GET: /VendorRequest/Edit/5
-        public ActionResult Edit(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            VendorRequest vendorrequest = db.VendorRequest.Find(id);
-            if (vendorrequest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vendorrequest);
-        }
+        //// GET: /VendorRequest/Edit/5
+        //public ActionResult Edit(long? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    VendorRequest vendorrequest = db.VendorRequest.Find(id);
+        //    if (vendorrequest == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(vendorrequest);
+        //}
         
 
-        // POST: /VendorRequest/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] VendorRequest vendorrequest)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(vendorrequest).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(vendorrequest);
-        }
+        //// POST: /VendorRequest/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include="VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] VendorRequest vendorrequest)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(vendorrequest).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(vendorrequest);
+        //}
         #endregion
 
         #region VendorRequest Delete
