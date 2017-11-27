@@ -168,7 +168,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\ApplicationManagement\AccountController.cs" />
     <Compile Include="Controllers\Landing\LandingController.cs" />
-    <Compile Include="Controllers\Landing\CustomerRegisterController.cs" />
     <Compile Include="Controllers\RestaurantManagement\ExpenseItemController.cs" />
     <Compile Include="Controllers\RestaurantManagement\CookingMeasurementController.cs" />
     <Compile Include="Controllers\RestaurantManagement\CustomerController.cs" />
@@ -500,7 +499,7 @@
     <Content Include="Views\Account\RoleIndex.cshtml" />
     <Content Include="Views\Account\EditRole.cshtml" />
     <Content Include="Views\Account\Permissions.cshtml" />
-    <Content Include="Views\CustomerRegister\Register.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\Landing\Home.cshtml" />
     <Content Include="Views\Vendor\Index.cshtml" />
     <Content Include="Views\Vendor\ManageRequests.cshtml" />

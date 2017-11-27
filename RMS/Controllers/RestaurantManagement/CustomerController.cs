@@ -146,5 +146,32 @@ namespace RMS.Controllers.RestaurantManagement
             base.Dispose(disposing);
         }
         #endregion
+
+        //This action will be called when the user requests to register as a customer
+        #region Customer Register
+        // GET: /RegisterCustomer/
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        // POST: /CustomerRegister/Register
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                //if (supplier.Name = )
+                db.Customer.Add(customer);
+                db.SaveChanges();
+                return RedirectToAction("Home");
+            }
+
+            return RedirectToAction("Home");
+        }
+        #endregion
     }
 }
