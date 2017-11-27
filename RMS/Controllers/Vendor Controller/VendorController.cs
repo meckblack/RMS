@@ -44,7 +44,7 @@ namespace RMS.Controllers.Vendor_Controller
             {
                 return HttpNotFound();
             }
-            return View(vendor);
+            return PartialView("Details", vendor);
         }
         #endregion
 
@@ -52,7 +52,8 @@ namespace RMS.Controllers.Vendor_Controller
         // GET: /Vendor/Create
         public ActionResult Create()
         {
-            return View();
+            var vendor = new Vendor();
+            return PartialView("Create", vendor);
         }
 
         // POST: /Vendor/Create
@@ -60,7 +61,7 @@ namespace RMS.Controllers.Vendor_Controller
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated,Status")] Vendor vendor)
+        public ActionResult Create([Bind(Include = "VendorId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated,Status")] Vendor vendor)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +80,7 @@ namespace RMS.Controllers.Vendor_Controller
                 };
                 db.Vendor.Add(req);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(new { succuess = true });
             }
 
             return View(vendor);
@@ -99,7 +100,7 @@ namespace RMS.Controllers.Vendor_Controller
             {
                 return HttpNotFound();
             }
-            return View(vendor);
+            return PartialView("Edit", vendor);
         }
 
         // POST: /Vendor/Edit/5
@@ -107,18 +108,61 @@ namespace RMS.Controllers.Vendor_Controller
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VendoerRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated,Status")] Vendor vendor)
+        public ActionResult Edit([Bind(Include = "VendorId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated,Status")] Vendor vendor)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(vendor).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(new { succuess = true });
             }
-            return View(vendor);
+            return PartialView("Edit", vendor);
         }
         #endregion
 
+        #region Vendor Delete
+
+        // GET: /Vendor/Delete/5
+        public ActionResult Delete(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Vendor vendor = db.Vendor.Find(id);
+            if (vendor == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView("Delete", vendor);
+        }
+
+        // POST: /Vendor/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(long id)
+        {
+            Vendor vendor = db.Vendor.Find(id);
+            db.Vendor.Remove(vendor);
+            db.SaveChanges();
+            return Json(new { succuess = true });
+        }
+
+        #endregion
+
+        #region Dispose
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+        #endregion
+
+
+        //This action is used when a user requests to be a vendor for the restaurant
         #region Vendor Request
         // GET: /Vendor/Request
         public ActionResult Requests()
@@ -132,7 +176,7 @@ namespace RMS.Controllers.Vendor_Controller
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Requests([Bind(Include = "VendorRequestId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendor)
+        public ActionResult Requests([Bind(Include = "VendorId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendor)
         {
             if (ModelState.IsValid)
             {
@@ -156,47 +200,6 @@ namespace RMS.Controllers.Vendor_Controller
             }
 
             return RedirectToAction("Home");
-        }
-        #endregion
-
-        #region Vendor Delete
-
-        // GET: /Vendor/Delete/5
-        public ActionResult Delete(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vendor vendor = db.Vendor.Find(id);
-            if (vendor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vendor);
-        }
-
-        // POST: /Vendor/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
-        {
-            Vendor vendor = db.Vendor.Find(id);
-            db.Vendor.Remove(vendor);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        #endregion
-
-        #region Dispose
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
         #endregion
     }
