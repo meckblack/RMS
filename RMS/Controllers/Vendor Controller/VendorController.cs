@@ -162,12 +162,12 @@ namespace RMS.Controllers.Vendor_Controller
 
         #endregion
 
-        #region Vendor ManageRequest
+        #region Vendor ManageRequests
 
-        //GET: /Vendor/ManageRequest
-        public ActionResult ManageRequest()
+        //GET: /Vendor/ManageRequests
+        public ActionResult ManageRequests()
         {
-            return View(db.Vendor.ToList());
+            return View(db.Vendor.Where(record => record.Status == Data.Objects.Enums.Status.Pending || record.Status == Data.Objects.Enums.Status.Declined ).ToList());
         }
 
         #endregion
@@ -185,8 +185,8 @@ namespace RMS.Controllers.Vendor_Controller
 
 
         //This action is used when a user requests to be a vendor for the restaurant
-        #region Vendor Request
-        // GET: /Vendor/Request
+        #region Vendor Requests
+        // GET: /Vendor/Requests
         public ActionResult Requests()
         {
             return View();
