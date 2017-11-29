@@ -219,21 +219,21 @@ namespace RMS.Controllers.Vendor_Controller
         #endregion
 
 
-        //This action is used when a user requests to be a vendor for the restaurant
+        //This action is used when a user registers to be a vendor for the restaurant
         #region Vendor Requests
         // GET: /Vendor/Requests
-        public ActionResult Requests()
+        public ActionResult Register()
         {
             return View();
         }
 
 
-        // POST: /Vendor/Request
+        // POST: /Vendor/Register
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Requests([Bind(Include = "VendorId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendor)
+        public ActionResult Register([Bind(Include = "VendorId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated")] Vendor vendor)
         {
             if (ModelState.IsValid)
             {

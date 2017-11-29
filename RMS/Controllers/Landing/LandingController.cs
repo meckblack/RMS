@@ -17,5 +17,9 @@ namespace RMS.Controllers.Landing
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return View("Register", "Vendor");
+        }
     }
 }
