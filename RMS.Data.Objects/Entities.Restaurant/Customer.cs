@@ -8,6 +8,7 @@ namespace RMS.Data.Objects.Entities.Restaurant
         [Key]
         public long CustomerId { get; set; }
 
+        //GENERAL DETAILS
         [Required(ErrorMessage = "First Name field is required")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -29,6 +30,11 @@ namespace RMS.Data.Objects.Entities.Restaurant
         [Required(ErrorMessage = " Gender field is required")]
         public Gender Gender { get; set; }
 
+        //DELIEVERY DETAILS
+        [Required(ErrorMessage = "Address field is required")]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
         [Required(ErrorMessage = " LGA field is required")]
         [Display(Name = "LGA")]
         public string LGA { get; set; }
@@ -45,8 +51,20 @@ namespace RMS.Data.Objects.Entities.Restaurant
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Address field is required")]
-        [Display(Name = "Address")]
-        public string Address { get; set; }
+        //RESTUARANT ACCOUNT DETAILS
+        [Display(Name = "Username")]
+        [Required(ErrorMessage = "Username is required")]
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "Password field is required")]
+        [Display(Name="Password")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Comfirm Password field is required")]
+        [Display(Name = "Comfirm Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Passwords doesn't match")]
+        public string ComfirmPassword { get; set; }
     }
 }

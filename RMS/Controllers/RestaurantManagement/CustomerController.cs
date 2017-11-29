@@ -48,32 +48,32 @@ namespace RMS.Controllers.RestaurantManagement
         }
         #endregion
 
-        #region Customer Create
-        // GET: /Customer/Create
-        public ActionResult Create()
-        {
-            var customer = new Customer();
-            return PartialView("Create", customer);
-        }
+        //#region Customer Create
+        //// GET: /Customer/Create
+        //public ActionResult Create()
+        //{
+        //    var customer = new Customer();
+        //    return PartialView("Create", customer);
+        //}
 
-        // POST: /Customer/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="CustomerId,FirstName,LastName,MiddleName,Address,Gender,LGA,State,ZipCode,PhoneNumber")] Customer customer)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Customer.Add(customer);
-                db.SaveChanges();
-                return Json(new { success = true });
-            }
+        //// POST: /Customer/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include="CustomerId,FirstName,LastName,MiddleName,Address,Gender,LGA,State,ZipCode,PhoneNumber")] Customer customer)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Customer.Add(customer);
+        //        db.SaveChanges();
+        //        return Json(new { success = true });
+        //    }
 
-            return PartialView("Create", customer);
-        }
+        //    return PartialView("Create", customer);
+        //}
 
-        #endregion
+        //#endregion
 
         #region Customer Edit
         // GET: /Customer/Edit/5
@@ -164,13 +164,20 @@ namespace RMS.Controllers.RestaurantManagement
         {
             if (ModelState.IsValid)
             {
-                //if (supplier.Name = )
-                db.Customer.Add(customer);
-                db.SaveChanges();
-                return RedirectToAction("Home");
+                if (db.Vendor.Any(record => record.Email == customer.Email))
+                {
+                    ModelState.AddModelError("Email", "Email Address already in use");
+                }
+                else
+                {
+                    db.Customer.Add(customer);
+                    db.SaveChanges();
+                    return RedirectToAction("Home", "Landing");
+                }
+                
             }
 
-            return RedirectToAction("Home");
+            return RedirectToAction("Home", "Landing");
         }
         #endregion
     }
