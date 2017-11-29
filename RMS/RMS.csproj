@@ -451,11 +451,6 @@
     <Content Include="Views\ExpenseItem\Delete.cshtml" />
     <Content Include="Views\ExpenseItem\Edit.cshtml" />
     <Content Include="Views\ExpenseItem\Index.cshtml" />
-    <Content Include="Views\Supplier\Index.cshtml" />
-    <Content Include="Views\Supplier\Create.cshtml" />
-    <Content Include="Views\Supplier\Edit.cshtml" />
-    <Content Include="Views\Supplier\Delete.cshtml" />
-    <Content Include="Views\Supplier\Details.cshtml" />
     <Content Include="Theme\landing\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Theme\landing\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Theme\landing\font-awesome-4.1.0\fonts\fontawesome-webfont.woff" />
