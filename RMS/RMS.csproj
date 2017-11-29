@@ -507,6 +507,7 @@
     <Content Include="Views\Vendor\Edit.cshtml" />
     <Content Include="Views\Vendor\Delete.cshtml" />
     <Content Include="Views\Vendor\Details.cshtml" />
+    <Content Include="Views\Vendor\ApproveRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -172,6 +172,41 @@ namespace RMS.Controllers.Vendor_Controller
 
         #endregion
 
+        #region Vendor ApproveRequest
+
+        // GET: /Vendor/ApproveRequest/5
+        public ActionResult ApproveRequest(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Vendor vendor = db.Vendor.Find(id);
+            if (vendor == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView("ApproveRequest", vendor);
+        }
+
+        // POST: /Vendor/ApproveRequest/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ApproveRequest([Bind(Include = "VendorId,Name,Email,Address,LGA,State,ZipCode,PhoneNumber,DateCreated,Status")] Vendor vendor)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(vendor).State = EntityState.Modified;
+                db.SaveChanges();
+                return Json(new { succuess = true });
+            }
+            return PartialView("ApproveRequest", vendor);
+        }
+
+        #endregion
+
         #region Dispose
         protected override void Dispose(bool disposing)
         {

@@ -80,10 +80,10 @@
                                     @Html.DisplayFor(modelItem => item.Address)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
+                                    @Html.DisplayFor(modelItem => item.Status) 
                                 </td>
                                 <td>
-                                    <a href="@Url.Action("Edit", "Vendor", new { id = item.VendorId })" data-modal=""><i style="color: brown;" class="fa fa-2x fa-edit"></i></a>
+                                    <a href="@Url.Action("ApproveRequest", "Vendor", new { id = item.VendorId })" data-modal=""><i style="color: brown;" class="fa fa-2x fa-edit"></i></a>
                                     <a href="@Url.Action("Details", "Vendor", new { id = item.VendorId })" data-modal=""><i style="color: blue;" class="fa fa-2x fa-book"></i></a>
                                     <a href="@Url.Action("Delete", "Vendor", new { id = item.VendorId })" data-modal=""><i style="color: red;" class="fa fa-2x fa-trash"></i></a>
                                 </td>
