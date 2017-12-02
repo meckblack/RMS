@@ -138,6 +138,10 @@
     <Compile Include="Migrations\201711291905353_Migrate-21.Designer.cs">
       <DependentUpon>201711291905353_Migrate-21.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711291921324_Migrate-22.cs" />
+    <Compile Include="Migrations\201711291921324_Migrate-22.Designer.cs">
+      <DependentUpon>201711291921324_Migrate-22.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -214,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711291905353_Migrate-21.resx">
       <DependentUpon>201711291905353_Migrate-21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711291921324_Migrate-22.resx">
+      <DependentUpon>201711291921324_Migrate-22.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
