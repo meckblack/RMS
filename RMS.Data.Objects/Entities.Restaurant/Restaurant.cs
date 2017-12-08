@@ -1,4 +1,5 @@
-﻿using RMS.Data.Objects.Enums;
+﻿using RMS.Data.Objects.Entities.RMS;
+using RMS.Data.Objects.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -32,6 +33,10 @@ namespace RMS.Data.Objects.Entities.Restaurant
         [Required(ErrorMessage = "Postal Code field is required")]
         [StringLength(10, ErrorMessage = "Please enter a valid postal code")]
         public string PostalCode { get; set; }
+
+        [Display(Name = "Bank")]
+        [Required(ErrorMessage = "Bank is required")]
+        public RMS_Bank Bank { get; set; }
 
         //public IEnumerable<ExpenseCategory> ExpenseCategories { get; set; }
         public IEnumerable<IncomeCategory> IncomeCategories { get; set; }
