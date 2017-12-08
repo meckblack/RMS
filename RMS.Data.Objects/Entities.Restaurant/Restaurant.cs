@@ -38,6 +38,14 @@ namespace RMS.Data.Objects.Entities.Restaurant
         [Required(ErrorMessage = "Bank is required")]
         public RMS_Bank Bank { get; set; }
 
+        [Display(Name = "Country")]
+        [Required(ErrorMessage = "Country is required")]
+        public RMS_Country Country { get; set; }
+
+        [Display(Name = "Account Number")]
+        [Required(ErrorMessage = "Account Number is required")]
+        public string AccountNumber { get; set; }
+
         //public IEnumerable<ExpenseCategory> ExpenseCategories { get; set; }
         public IEnumerable<IncomeCategory> IncomeCategories { get; set; }
 
