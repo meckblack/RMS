@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RMS.Data.Objects.Entities.RMS
 {
-    class RMS_Bank
+    public class RMS_Bank
     {
         [Key]
         public long RMS_BankId { get; set; }
@@ -19,7 +19,10 @@ namespace RMS.Data.Objects.Entities.RMS
 
 
         //FOREIGN KEYS
+
+        [Display(Name="Country")]
         public long RMS_CountryId { get; set; }
+
         [ForeignKey("RMS_CountryId")]
         public virtual RMS_Country RMS_Country { get; set; }
     }

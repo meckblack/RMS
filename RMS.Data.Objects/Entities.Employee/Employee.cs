@@ -1,5 +1,6 @@
 ﻿using RMS.Data.Objects.Entities.ApplicationManagement;
 using RMS.Data.Objects.Entities.SystemMangement;
+using RMS.Data.Objects.Entities.Restaurant;
 using RMS.Data.Objects.Enums;
 using System;
 using System.ComponentModel;
@@ -73,6 +74,12 @@ namespace RMS.Data.Objects.Entities.Employee
 
         [ForeignKey("DepartmentId")]
         public virtual Department Department { get; set; }
+
+        //[DisplayName("Restaurant")]
+        //public long? RestaurantId { get; set; }
+
+        //[ForeignKey("RestaurantId")]
+        //public virtual Restaurant Restaurant { get; set; }
 
     }
 }

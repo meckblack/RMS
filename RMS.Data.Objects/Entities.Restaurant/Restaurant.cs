@@ -1,5 +1,6 @@
 ﻿using RMS.Data.Objects.Entities.RMS;
 using RMS.Data.Objects.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -45,6 +46,9 @@ namespace RMS.Data.Objects.Entities.Restaurant
         [Display(Name = "Account Number")]
         [Required(ErrorMessage = "Account Number is required")]
         public string AccountNumber { get; set; }
+
+        [Display(Name = "Date Created")]
+        public virtual DateTime DateCreated { get; set; }
 
         //public IEnumerable<ExpenseCategory> ExpenseCategories { get; set; }
         public IEnumerable<IncomeCategory> IncomeCategories { get; set; }

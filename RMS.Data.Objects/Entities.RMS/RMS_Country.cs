@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RMS.Data.Objects.Entities.RMS
 {
-    class RMS_Country
+    public class RMS_Country
     {
         [Key]
         public long RMS_CountryId { get; set; }
