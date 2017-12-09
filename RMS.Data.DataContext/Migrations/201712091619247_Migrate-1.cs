@@ -73,7 +73,6 @@ namespace RMS.Data.DataContext.Migrations
                         AccountNumber = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
                         BankId = c.Long(),
                         DepartmentId = c.Long(),
-                        RestaurantId = c.Long(),
                         CreatedBy = c.String(unicode: false),
                         DateCreated = c.DateTime(nullable: false, precision: 0),
                         DateLastModified = c.DateTime(nullable: false, precision: 0),
@@ -82,26 +81,8 @@ namespace RMS.Data.DataContext.Migrations
                 .PrimaryKey(t => t.EmployeeId)
                 .ForeignKey("dbo.Bank", t => t.BankId)
                 .ForeignKey("dbo.Department", t => t.DepartmentId)
-                .ForeignKey("dbo.Restaurant", t => t.RestaurantId)
                 .Index(t => t.BankId)
-                .Index(t => t.DepartmentId)
-                .Index(t => t.RestaurantId);
-            
-            CreateTable(
-                "dbo.Restaurant",
-                c => new
-                    {
-                        RestaurantId = c.Long(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 35, storeType: "nvarchar"),
-                        Acronym = c.String(nullable: false, unicode: false),
-                        Address = c.String(nullable: false, unicode: false),
-                        LGA = c.String(nullable: false, unicode: false),
-                        State = c.Int(nullable: false),
-                        PostalCode = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
-                        AccountNumber = c.String(nullable: false, unicode: false),
-                        DateCreated = c.DateTime(nullable: false, precision: 0),
-                    })
-                .PrimaryKey(t => t.RestaurantId);
+                .Index(t => t.DepartmentId);
             
             CreateTable(
                 "dbo.ExpenseCategory",
@@ -196,6 +177,22 @@ namespace RMS.Data.DataContext.Migrations
                 .Index(t => t.IncomeCategoryId);
             
             CreateTable(
+                "dbo.Restaurant",
+                c => new
+                    {
+                        RestaurantId = c.Long(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 35, storeType: "nvarchar"),
+                        Acronym = c.String(nullable: false, unicode: false),
+                        Address = c.String(nullable: false, unicode: false),
+                        LGA = c.String(nullable: false, unicode: false),
+                        State = c.Int(nullable: false),
+                        PostalCode = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
+                        AccountNumber = c.String(nullable: false, unicode: false),
+                        DateCreated = c.DateTime(nullable: false, precision: 0),
+                    })
+                .PrimaryKey(t => t.RestaurantId);
+            
+            CreateTable(
                 "dbo.Role",
                 c => new
                     {
@@ -232,18 +229,17 @@ namespace RMS.Data.DataContext.Migrations
             DropForeignKey("dbo.FoodStuff", "MeasurementId", "dbo.Measurement");
             DropForeignKey("dbo.Food", "FoodTypeId", "dbo.FoodType");
             DropForeignKey("dbo.ExpenseItem", "ExpenseCategoryId", "dbo.ExpenseCategory");
-            DropForeignKey("dbo.Employee", "RestaurantId", "dbo.Restaurant");
             DropForeignKey("dbo.Employee", "DepartmentId", "dbo.Department");
             DropForeignKey("dbo.Employee", "BankId", "dbo.Bank");
             DropIndex("dbo.IncomeItem", new[] { "IncomeCategoryId" });
             DropIndex("dbo.FoodStuff", new[] { "MeasurementId" });
             DropIndex("dbo.Food", new[] { "FoodTypeId" });
             DropIndex("dbo.ExpenseItem", new[] { "ExpenseCategoryId" });
-            DropIndex("dbo.Employee", new[] { "RestaurantId" });
             DropIndex("dbo.Employee", new[] { "DepartmentId" });
             DropIndex("dbo.Employee", new[] { "BankId" });
             DropTable("dbo.Vendor");
             DropTable("dbo.Role");
+            DropTable("dbo.Restaurant");
             DropTable("dbo.IncomeItem");
             DropTable("dbo.IncomeCategory");
             DropTable("dbo.Measurement");
@@ -252,7 +248,6 @@ namespace RMS.Data.DataContext.Migrations
             DropTable("dbo.Food");
             DropTable("dbo.ExpenseItem");
             DropTable("dbo.ExpenseCategory");
-            DropTable("dbo.Restaurant");
             DropTable("dbo.Employee");
             DropTable("dbo.Department");
             DropTable("dbo.Customer");

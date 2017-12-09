@@ -13,7 +13,7 @@ namespace RMS.Data.DataContext.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712091421453_Migrate-1"; }
+            get { return "201712091619247_Migrate-1"; }
         }
         
         string IMigrationMetadata.Source

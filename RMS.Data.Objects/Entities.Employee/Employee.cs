@@ -75,11 +75,6 @@ namespace RMS.Data.Objects.Entities.Employee
         [ForeignKey("DepartmentId")]
         public virtual Department Department { get; set; }
 
-        [DisplayName("Restaurant")]
-        public long? RestaurantId { get; set; }
-
-        [ForeignKey("RestaurantId")]
-        public virtual Restaurant.Restaurant Restaurant { get; set; }
 
        
     }
