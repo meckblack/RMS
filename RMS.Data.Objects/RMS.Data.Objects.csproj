@@ -52,8 +52,6 @@
     <Compile Include="Entities.Restaurant\Restaurant.cs" />
     <Compile Include="Entities.Restaurant\SaleCategory.cs" />
     <Compile Include="Entities.Restaurant\SaleItem.cs" />
-    <Compile Include="Entities.RMS\RMS_Bank.cs" />
-    <Compile Include="Entities.RMS\RMS_Country.cs" />
     <Compile Include="Entities.SystemMangement\Bank.cs" />
     <Compile Include="Entities.SystemMangement\Department.cs" />
     <Compile Include="Entities.Restaurant\FoodStuff.cs" />

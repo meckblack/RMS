@@ -6,7 +6,6 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using RMS.Data.Objects.Entities.RMS;
 
 namespace RMS.Data.Objects.Entities.Employee
 {

@@ -502,11 +502,6 @@
     <Content Include="Views\Vendor\Delete.cshtml" />
     <Content Include="Views\Vendor\Details.cshtml" />
     <Content Include="Views\Vendor\ApproveRequest.cshtml" />
-    <Content Include="Views\Restaurant\Create.cshtml" />
-    <Content Include="Views\Restaurant\Delete.cshtml" />
-    <Content Include="Views\Restaurant\Details.cshtml" />
-    <Content Include="Views\Restaurant\Edit.cshtml" />
-    <Content Include="Views\Restaurant\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

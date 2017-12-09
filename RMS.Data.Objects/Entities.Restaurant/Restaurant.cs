@@ -1,9 +1,10 @@
-﻿using RMS.Data.Objects.Entities.RMS;
-using RMS.Data.Objects.Enums;
+﻿using RMS.Data.Objects.Enums;
 using RMS.Data.Objects.Entities.Employee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RMS.Data.Objects.Entities.Restaurant
 {
@@ -36,14 +37,6 @@ namespace RMS.Data.Objects.Entities.Restaurant
         [StringLength(10, ErrorMessage = "Please enter a valid postal code")]
         public string PostalCode { get; set; }
 
-        [Display(Name = "Bank")]
-        [Required(ErrorMessage = "Bank is required")]
-        public RMS_Bank Bank { get; set; }
-
-        [Display(Name = "Country")]
-        [Required(ErrorMessage = "Country is required")]
-        public RMS_Country Country { get; set; }
-
         [Display(Name = "Account Number")]
         [Required(ErrorMessage = "Account Number is required")]
         public string AccountNumber { get; set; }
@@ -56,6 +49,9 @@ namespace RMS.Data.Objects.Entities.Restaurant
 
         public IEnumerable<Employee.Employee> Employees { get; set; }
         public IEnumerable<Vendor.Vendor> Vendors { get; set; }
+
         
+
+
     }
 }
