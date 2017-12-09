@@ -175,6 +175,7 @@
     <Compile Include="Controllers\RestaurantManagement\ExpenseCategoryController.cs" />
     <Compile Include="Controllers\RestaurantManagement\FoodController.cs" />
     <Compile Include="Controllers\RestaurantManagement\IncomeCategoryController.cs" />
+    <Compile Include="Controllers\RestaurantManagement\RestaurantController.cs" />
     <Compile Include="Controllers\SystemManagement\BankController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SystemManagement\DepartmentController.cs" />
@@ -501,6 +502,11 @@
     <Content Include="Views\Vendor\Delete.cshtml" />
     <Content Include="Views\Vendor\Details.cshtml" />
     <Content Include="Views\Vendor\ApproveRequest.cshtml" />
+    <Content Include="Views\Restaurant\Create.cshtml" />
+    <Content Include="Views\Restaurant\Delete.cshtml" />
+    <Content Include="Views\Restaurant\Details.cshtml" />
+    <Content Include="Views\Restaurant\Edit.cshtml" />
+    <Content Include="Views\Restaurant\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

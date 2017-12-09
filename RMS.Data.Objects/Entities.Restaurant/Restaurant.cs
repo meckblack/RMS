@@ -1,5 +1,6 @@
 ﻿using RMS.Data.Objects.Entities.RMS;
 using RMS.Data.Objects.Enums;
+using RMS.Data.Objects.Entities.Employee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -53,6 +54,8 @@ namespace RMS.Data.Objects.Entities.Restaurant
         //public IEnumerable<ExpenseCategory> ExpenseCategories { get; set; }
         public IEnumerable<IncomeCategory> IncomeCategories { get; set; }
 
+        public IEnumerable<Employee.Employee> Employees { get; set; }
+        public IEnumerable<Vendor.Vendor> Vendors { get; set; }
         
     }
 }
