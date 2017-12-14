@@ -160,7 +160,7 @@ namespace RMS.Controllers.RestaurantManagement
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(Customer customer)
+        public ActionResult Register([Bind(Include = "CustomerId,FirstName,LastName,MiddleName,Address,Gender,LGA,State,ZipCode,PhoneNumber,Email,Username,Password,ComfirmPassword")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -170,7 +170,24 @@ namespace RMS.Controllers.RestaurantManagement
                 }
                 else
                 {
-                    db.Customer.Add(customer);
+                    var cust = new Customer
+                    {
+                        CustomerId = customer.CustomerId,
+                        FirstName = customer.FirstName,
+                        LastName = customer.LastName,
+                        MiddleName = customer.MiddleName,
+                        Address = customer.Address,
+                        Gender = customer.Gender,
+                        LGA = customer.LGA,
+                        State = customer.State,
+                        ZipCode = customer.ZipCode,
+                        PhoneNumber = customer.PhoneNumber,
+                        Username = customer.Username,
+                        Password = customer.Password,
+                        ComfirmPassword = customer.ComfirmPassword,
+                        Email = customer.Email
+                    };
+                    db.Customer.Add(cust);
                     db.SaveChanges();
                     return RedirectToAction("Home", "Landing");
                 }
